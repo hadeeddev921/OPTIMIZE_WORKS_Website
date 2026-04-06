@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const idleDelay = 1
+const idleDelay = 1.55
 
 export default function SolutionsGallery() {
   const { solutions } = site
@@ -71,13 +71,13 @@ export default function SolutionsGallery() {
         gsap.to(lines, {
           opacity: 1,
           y: 0,
-          duration: 0.75,
+          duration: 1.12,
           ease: 'power3.out',
-          stagger: 0.12,
+          stagger: 0.2,
           scrollTrigger: {
             trigger: header,
             start: 'top 85%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
           },
         })
       }
@@ -88,13 +88,13 @@ export default function SolutionsGallery() {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.75,
+        duration: 1.2,
         ease: 'power3.out',
-        stagger: 0.15,
+        stagger: 0.28,
         scrollTrigger: {
           trigger: grid,
           start: 'top 80%',
-          toggleActions: 'play none none none',
+          toggleActions: 'play reverse play reverse',
         },
       })
 
@@ -124,12 +124,12 @@ export default function SolutionsGallery() {
           })
           gsap.to(kenEl, {
             scale: 1,
-            duration: 1.1,
+            duration: 1.65,
             ease: 'power4.out',
             scrollTrigger: {
               trigger: card,
               start: 'top 85%',
-              toggleActions: 'play none none none',
+              toggleActions: 'play reverse play reverse',
             },
           })
         }
@@ -142,11 +142,11 @@ export default function SolutionsGallery() {
               {
                 x: 3,
                 scale: 1.035,
-                duration: 3,
+                duration: 4.5,
                 ease: 'sine.inOut',
                 yoyo: true,
                 repeat: -1,
-                delay: idleDelay + i * 0.08,
+                delay: idleDelay + i * 0.1,
               },
             )
           } else if (i === 1) {
@@ -156,30 +156,30 @@ export default function SolutionsGallery() {
               {
                 y: 5,
                 rotateZ: 2.5,
-                duration: 2.6,
+                duration: 4,
                 ease: 'sine.inOut',
                 yoyo: true,
                 repeat: -1,
-                delay: idleDelay + i * 0.08,
+                delay: idleDelay + i * 0.1,
               },
             )
           } else if (i === 2) {
             gsap.to(kenEl, {
               rotation: '+=360',
-              duration: 68,
+              duration: 110,
               ease: 'none',
               repeat: -1,
-              delay: idleDelay + i * 0.08,
+              delay: idleDelay + i * 0.1,
             })
           } else if (i === 3) {
             gsap
-              .timeline({ repeat: -1, delay: idleDelay + i * 0.08 })
+              .timeline({ repeat: -1, delay: idleDelay + i * 0.1 })
               .fromTo(
                 floatEl,
                 { y: 6 },
-                { y: -14, duration: 1.05, ease: 'power2.in' },
+                { y: -14, duration: 1.62, ease: 'power2.in' },
               )
-              .to(floatEl, { y: 6, duration: 0.88, ease: 'power2.out' })
+              .to(floatEl, { y: 6, duration: 1.35, ease: 'power2.out' })
           }
         }
 
@@ -192,7 +192,7 @@ export default function SolutionsGallery() {
               ease: 'none',
               scrollTrigger: {
                 trigger: card,
-                scrub: 0.75,
+                scrub: 1.15,
                 start: 'top bottom',
                 end: 'bottom top',
               },
@@ -206,7 +206,7 @@ export default function SolutionsGallery() {
               scale: 1.03,
               y: -4,
               rotateZ: 1.2,
-              duration: 0.52,
+              duration: 0.88,
               ease: 'expo.out',
               overwrite: 'auto',
             })
@@ -216,7 +216,7 @@ export default function SolutionsGallery() {
               scale: 1,
               y: 0,
               rotateZ: 0,
-              duration: 0.52,
+              duration: 0.88,
               ease: 'expo.out',
               overwrite: 'auto',
             })
@@ -224,11 +224,11 @@ export default function SolutionsGallery() {
           if (tiltEl && finePointer) {
             gsap.set(tiltEl, { rotateX: 0, rotateY: 0 })
             const rotateXTo = gsap.quickTo(tiltEl, 'rotateX', {
-              duration: 0.45,
+              duration: 0.75,
               ease: 'power3.out',
             })
             const rotateYTo = gsap.quickTo(tiltEl, 'rotateY', {
-              duration: 0.45,
+              duration: 0.75,
               ease: 'power3.out',
             })
             const onMove = (e: MouseEvent) => {
@@ -312,7 +312,7 @@ export default function SolutionsGallery() {
               data-solution-card
               className={cn(
                 'group overflow-hidden rounded-xl border border-border border-l-2 border-l-brand-bright bg-card shadow-sm',
-                'transition-[box-shadow,border-color] duration-500 ease-out',
+                'transition-[box-shadow,border-color] duration-1000 ease-out',
                 'hover:-translate-y-1 hover:border-brand-mid/40 hover:shadow-[0_12px_40px_-10px_rgba(67,165,217,0.26)] hover:ring-1 hover:ring-border/60',
               )}
             >
